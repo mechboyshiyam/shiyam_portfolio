@@ -1,0 +1,540 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #C5C6C7;
+    background-color: #0B0C10;
+    margin: 0;
+    padding: 0;
+    position: relative; /* To ensure absolute positioning works correctly */
+}
+
+/* Navigation */
+header {
+    background-color: black; /* Updated to black */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure the navbar is on top of other content */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Navbar height */
+}
+
+nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: #C5C6C7;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #66FCF1;
+}
+
+nav ul li a.active {
+    color: #66FCF1;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #66FCF1;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Line animation */
+}
+
+
+/* Home Section */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px; /* Reduced top padding */
+    margin: 0;
+    min-height: 100vh;
+    position: relative; /* To allow the background layers */
+    overflow: hidden; /* To hide any overflow from the animation */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+    position: relative;
+    z-index: 10; /* Ensure content is above background layers */
+}
+
+.text-content {
+    max-width: 50%; /* Home page remains half-width for text */
+    padding-right: 20px;
+    text-align: left;
+}
+
+.hello {
+    color: #C5C6C7;
+    font-size: 24px;
+}
+
+.name {
+    color: #66FCF1;
+    font-size: 36px;
+}
+
+.title {
+    color: #45A29E;
+    font-size: 24px;
+}
+
+p {
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+button {
+    background-color: transparent;
+    border-radius: 30px;
+    border: 2px solid #66FCF1; /* Name color */
+    color: #66FCF1;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #66FCF1; /* Solid color on hover */
+    color: #0B0C10; /* Text color on hover */
+}
+
+.image-content {
+    max-width: 50%; /* Home page keeps the image on the right */
+    display: flex;
+    justify-content: center;
+}
+
+.image-content img {
+    width: 75%;
+    height: auto;
+}
+
+/* Social Media Icons */
+.social-icons {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* hidden off-screen */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transform: translateY(-50%);
+    transition: right 0.5s ease;
+    z-index: 100; /* Ensure it is above all background layers */
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid #66FCF1;
+    transition: all 0.5s ease;
+    color: #66FCF1;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+
+.social-icons a:hover {
+    background-color: #66FCF1;
+    color: #0B0C10; /* Hover effect */
+    transform: translateX(10px); /* Slide right animation */
+}
+
+.social-icons.hidden {
+    right: -100px; /* Move out of view */
+    transform: translateY(-50%);
+    transition: right 0.5s ease;
+}
+
+/* Starry Night Background Animation */
+.stars, .twinkling, .clouds {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.stars {
+    z-index: 0;
+    background: #000 url('https://i.ibb.co/g91MwKZ/stars.png') repeat top center;
+    height: 100%;
+}
+
+.twinkling {
+    z-index: 1;
+    background: transparent url('https://i.ibb.co/pnJQm6V/twinkling.png') repeat top center;
+    animation: move-twink-back 200s linear infinite;
+    height: 100%;
+}
+
+.clouds {
+    z-index: 2;
+    background: transparent url('https://i.ibb.co/BsG8rYZ/clouds.png') repeat top center;
+    animation: move-clouds-back 800s linear infinite; /* Adjusted duration for less frequent movement */
+    height: 90%;
+}
+
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position: 0 0;}
+    to {background-position: 10000px 0;}
+}
+
+/*-------------------About Me Section-------------------*/
+#about{
+    color: #ababab;
+    height: 100vh;
+}
+
+.stars-about {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #000 url('https://i.ibb.co/g91MwKZ/stars.png') repeat;
+    z-index: 0;
+    animation: moveStarsAbout 100s linear infinite;
+}
+  
+@keyframes moveStarsAbout{
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+  
+.twinkling-about{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background:transparent url('https://i.ibb.co/pnJQm6V/twinkling.png') repeat;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+}
+  
+@keyframes twinkleabout{
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.3;
+    }
+}
+
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1 {
+    flex-basis: 35%;
+    padding-top: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+#c {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+    z-index: 100;
+}
+
+.about-col-2{
+    padding: 60px 0;
+    flex-basis: 60%;
+    z-index: 100;
+}
+
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.about-col-2 p{
+    padding-right: 13%;
+}
+
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #66FCF1;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after{
+    width: 40%;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    margin: 15px 0;
+    margin-left: -35px;
+    margin-right: 20%;
+}
+.tab-contents ul li span{
+    color: #66FCF1;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+
+
+/*----------Contact-----------*/
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+
+.stars-contact {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #000 url('https://i.ibb.co/g91MwKZ/stars.png') repeat;
+    z-index: 0;
+    animation: moveStarsAbout 100s linear infinite;
+}
+  
+@keyframes moveStarsContact{
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+  
+.twinkling-contact {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background:transparent url('https://i.ibb.co/pnJQm6V/twinkling.png') repeat;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+}
+  
+@keyframes twinkleContact {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.3;
+    }
+}
+
+.contact-left {
+    flex: 1;
+    padding-left: 10%;
+    margin-bottom: 30px;
+    z-index: 100;
+}
+
+.contact-left h1 {
+    font-size: 36px;
+    color: #66FCF1;
+}
+
+.contact-left p{
+    color: #ffffff;
+    margin-bottom: 30px;
+    z-index: 100;
+}
+
+.contact-left p i{
+    color: #C5C6C7;
+    margin-right: 15px;
+    font-size: 25px;
+    transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+    z-index: 100;
+}
+
+.contact-left p i:hover{
+    color: #66FCF1;
+    margin-right: 15px;
+    font-size: 25px;
+    transform: scale(1.3); /* Scale up by 30% */
+    z-index: 100;
+}
+
+.social-icons-contact {
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    padding-bottom: 30px;
+    gap: 15px;
+    opacity: 1; /* Ensure icons are always visible */
+    transition: top 0.5s ease;
+    z-index: 100; /* Ensure it is above all background layers */
+}
+
+.social-icons-contact a{ 
+    z-index: 100;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid #C5C6C7;
+    transition: transform 0.5s ease;
+    color: #C5C6C7;
+    font-size: 20px;
+    text-decoration: none;
+    
+}
+
+
+.social-icons-contact a:hover{
+    background-color: #66FCF1;
+    border: 3px solid #66FCF1;
+    color: #0B0C10; /* Hover effect */
+    transform: translateY(-5px); /* Slide top animation */
+}
+
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10%;
+    width: 80%;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #C5C6C7;
+}
+
+textarea {
+    height: 130px;
+    resize: none;
+}
+
+#msg{
+    color: #61b752;
+    margin-top: 375px;
+    margin-left: -600px;
+    display: block;
+}
+
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 20px;
+    background-color: #0B0C10;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Responsive for mobile screen */
+@media (max-width: 450px) {
+    #home {
+        display: flex; 
+        flex-direction: column; 
+       
+    }
+}
+
+
